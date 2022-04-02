@@ -1,0 +1,40 @@
+{
+  "datasets": [
+    {
+      "name": "Some data",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
+      "timestamps": {
+        "from": "2022-04-02T15:33:16+02:00",
+        "to": "now"
+      },
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      },
+      "static_data": [
+        {
+          "name": "ip",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "hPa"
+        }
+      ]
+    }
+  ]
+}
