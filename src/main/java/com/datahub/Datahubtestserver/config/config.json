@@ -1,0 +1,25 @@
+{
+  "datasets": [
+    {
+      "name": "new_data",
+      "type": "CHART",
+      "static_data": null,
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "url": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
+          "timestamps": {
+            "from": "2022-04-02T15:33:16+02:00",
+            "to": "now"
+          },
+          "source": "heater.tempSet",
+          "unit": "celsius",
+          "updates": {
+            "update": true,
+            "update_interval_sec": 600
+          }
+        }
+      ]
+    }
+  ]
+}
