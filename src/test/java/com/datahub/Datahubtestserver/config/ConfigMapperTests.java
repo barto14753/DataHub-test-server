@@ -1,4 +1,4 @@
-package com.datahub.Datahubtestserver.configTest;
+package com.datahub.Datahubtestserver.config;
 
 import com.datahub.Datahubtestserver.model.*;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -9,10 +9,7 @@ import org.springframework.util.Assert;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 public class ConfigMapperTests {
     @Test
