@@ -2,6 +2,8 @@ package com.datahub.Datahubtestserver.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class Data {
     private final String name;
     private final String url;
@@ -9,6 +11,7 @@ public class Data {
     private final String source;
     private final String unit;
     private final Updates updates;
+    private List<Double> records;
 
     public Data(
             @JsonProperty("name") String name,
@@ -24,6 +27,7 @@ public class Data {
         this.timestamps = timestamps;
         this.unit = unit;
         this.updates = updates;
+
     }
 
     public String getName() {

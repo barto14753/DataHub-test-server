@@ -16,4 +16,8 @@ public class Config {
     {
         return this.datasets;
     }
+
+    public void setDatasets(List<Dataset> datasets) {
+        this.datasets = datasets;
+    }
 }

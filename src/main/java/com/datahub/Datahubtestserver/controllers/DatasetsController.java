@@ -26,6 +26,13 @@ public class DatasetsController {
         return datasets.getDatasets();
     }
 
+    @GetMapping("/allNames")
+    @ResponseBody
+    public List<String> getAllDatasetsNames()
+    {
+        return datasets.getDatasetsNames();
+    }
+
 
 
 }

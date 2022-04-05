@@ -25,8 +25,6 @@ public class ConfigController {
     @ResponseBody
     public Config postConfig(@RequestBody Config config)
     {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         this.config = config;
         datasets.setDatasets(config.getDatasets());
 

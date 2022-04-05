@@ -2,7 +2,9 @@ package com.datahub.Datahubtestserver.state;
 
 import com.datahub.Datahubtestserver.model.Dataset;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public class Datasets {
     private static Datasets INSTANCE;
@@ -35,12 +37,17 @@ public class Datasets {
     {
         for (Dataset dataset: datasets)
         {
-            if (dataset.getName() == name) return dataset;
+            if (Objects.equals(dataset.getName(), name)) return dataset;
         }
         return null;
     }
 
     public void setDatasets(List<Dataset> datasets) {
         this.datasets = datasets;
+    }
+
+    public List<String> getDatasetsNames()
+    {
+        return this.datasets.stream().map((Dataset::getName)).toList();
     }
 }
