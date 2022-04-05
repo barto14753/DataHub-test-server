@@ -1,7 +1,10 @@
 package com.datahub.Datahubtestserver.model;
 
+import com.datahub.Datahubtestserver.download.RecordsFactory;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.json.JSONException;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Data {
@@ -11,7 +14,7 @@ public class Data {
     private final String source;
     private final String unit;
     private final Updates updates;
-    private List<Double> records;
+    private List<Record> records;
 
     public Data(
             @JsonProperty("name") String name,
@@ -27,6 +30,21 @@ public class Data {
         this.timestamps = timestamps;
         this.unit = unit;
         this.updates = updates;
+        this.updateRecords();
+
+    }
+
+    public void updateRecords()
+    {
+        try {
+            this.records = RecordsFactory.downloadRecords(this.url, this.timestamps, this.source);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -53,5 +71,7 @@ public class Data {
     public Updates getUpdates() {
         return updates;
     }
+
+    public List<Record> getRecords() { return records; }
 }
 

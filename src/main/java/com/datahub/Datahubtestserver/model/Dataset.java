@@ -3,6 +3,7 @@ package com.datahub.Datahubtestserver.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Dataset {
     private String name;
@@ -32,6 +33,14 @@ public class Dataset {
 
     public List<Data> getStatic_data() {
         return static_data;
+    }
+
+    public Data getData(String name)
+    {
+        return Stream.concat(static_data.stream(), sensors_data.stream())
+                .filter(data -> data.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     public String getName() {
