@@ -2,18 +2,19 @@ package com.datahub.Datahubtestserver.download;
 
 import com.datahub.Datahubtestserver.model.Record;
 import com.datahub.Datahubtestserver.model.Timestamp;
+import javassist.compiler.ast.Pair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecordsFactory {
     public static List<Record> downloadRecords(String url, Timestamp timestamp, String source)
-            throws JSONException, IOException, InterruptedException {
+            throws JSONException, IOException, InterruptedException, ParseException {
 
         List<Record> records = new ArrayList<>();
         JSONObject data = Downloader.download(url);
@@ -22,18 +23,34 @@ public class RecordsFactory {
         {
             JSONArray results = data.getJSONArray("results");
             records.addAll(jsonsToRecords(results, timestamp, source));
-
-            if (true) finished = true;
+            if (records.size() == results.length() && data.has("next"))
+            {
+                data = Downloader.download(data.getString("next"));
+            }
+            else
+            {
+                finished = true;
+            }
         }
 
         return records;
     }
 
-    public static List<Record> jsonsToRecords(JSONArray array, Timestamp timestamp, String source) throws JSONException {
+    private static boolean isValid(Timestamp timestamp, String recordTimestamp) throws ParseException {
+        if (timestamp == null) return true;
+        return timestamp.isInRange(recordTimestamp);
+    }
+
+    public static List<Record> jsonsToRecords(JSONArray array, Timestamp timestamp, String source) throws JSONException, ParseException {
         List<Record> records = new ArrayList<>();
+        Boolean end = false;
         for (int i=0; i< array.length(); i++)
         {
             Record record = jsonToRecord(array.getJSONObject(i), source);
+            if (!isValid(timestamp, record.getTimestamp()))
+            {
+                break;
+            }
             records.add(record);
         }
         return records;

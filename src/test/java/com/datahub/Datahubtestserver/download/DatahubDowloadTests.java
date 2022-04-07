@@ -23,6 +23,7 @@ import java.net.URLConnection;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public class DatahubDowloadTests {
     }
 
     @Test
-    public void testDownloader() throws IOException, InterruptedException, JSONException {
+    public void testDownloader() throws IOException, InterruptedException, JSONException, ParseException {
         String url = "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/";
         String source = "heater.tempSet";
 

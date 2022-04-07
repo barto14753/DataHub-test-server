@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 public class Data {
@@ -38,7 +39,7 @@ public class Data {
     {
         try {
             this.records = RecordsFactory.downloadRecords(this.url, this.timestamps, this.source);
-        } catch (JSONException e) {
+        } catch (JSONException | ParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
