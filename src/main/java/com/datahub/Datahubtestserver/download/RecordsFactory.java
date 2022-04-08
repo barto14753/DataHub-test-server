@@ -13,44 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordsFactory {
-    public static List<Record> downloadRecords(String url, Timestamp timestamp, String source)
-            throws JSONException, IOException, InterruptedException, ParseException {
 
+    public static List<Record> jsonsToRecord(JSONArray array, String source) throws JSONException, ParseException {
         List<Record> records = new ArrayList<>();
-        JSONObject data = Downloader.download(url);
-        boolean finished = false;
-        while (!finished)
-        {
-            JSONArray results = data.getJSONArray("results");
-            records.addAll(jsonsToRecords(results, timestamp, source));
-            if (records.size() == results.length() && data.has("next"))
-            {
-                data = Downloader.download(data.getString("next"));
-            }
-            else
-            {
-                finished = true;
-            }
-        }
-
+        Record record = jsonToRecord(array.getJSONObject(0), source);
+        records.add(record);
         return records;
     }
 
-    private static boolean isValid(Timestamp timestamp, String recordTimestamp) throws ParseException {
-        if (timestamp == null) return true;
-        return timestamp.isInRange(recordTimestamp);
-    }
-
-    public static List<Record> jsonsToRecords(JSONArray array, Timestamp timestamp, String source) throws JSONException, ParseException {
+    public static List<Record> jsonsToRecords(JSONArray array, String source) throws JSONException, ParseException {
         List<Record> records = new ArrayList<>();
-        Boolean end = false;
         for (int i=0; i< array.length(); i++)
         {
             Record record = jsonToRecord(array.getJSONObject(i), source);
-            if (!isValid(timestamp, record.getTimestamp()))
-            {
-                break;
-            }
             records.add(record);
         }
         return records;

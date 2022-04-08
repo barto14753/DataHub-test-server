@@ -41,15 +41,6 @@ public class DatahubDowloadTests {
 
     }
 
-    @Test
-    public void testDownloader() throws IOException, InterruptedException, JSONException, ParseException {
-        String url = "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/";
-        String source = "heater.tempSet";
-
-        List<Record> records = RecordsFactory.downloadRecords(url, new Timestamp("", ""), source);
-        System.out.println(records);
-
-    }
 
     @Test
     public void testGetPath()

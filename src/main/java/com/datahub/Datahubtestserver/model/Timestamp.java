@@ -59,4 +59,15 @@ public class Timestamp {
         }
 
     }
+
+    public boolean isLate(String datetime) throws ParseException {
+        Date date = getDate(datetime);
+        if (from.equals("always")) return false;
+        else
+        {
+            Date _from = getDate(from);
+            return _from.after(date);
+        }
+
+    }
 }

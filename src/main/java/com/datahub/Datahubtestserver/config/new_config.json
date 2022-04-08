@@ -1,0 +1,72 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_1",
+      "type": "CHART",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        }
+      ],
+
+      "timestamp": {
+        "from": "2022-04-02T15:33:16+02:00",
+        "to": "now"
+      },
+
+      "filters": [{
+        "@type": "SortFilter",
+        "data_name": "Temperature"
+      }],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "dataset_2",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
+      "static_data": [
+        {
+          "name": "ip",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        }
+      ],
+
+      "timestamp": {
+        "from": "2022-04-02T15:33:16+02:00",
+        "to": "now"
+      },
+
+      "filters": [{
+        "@type": "SortFilter",
+        "data_name": "Temperature"
+      }],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    }
+  ]
+}
