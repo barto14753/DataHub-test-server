@@ -20,14 +20,22 @@
       ],
 
       "timestamp": {
-        "from": "2022-04-02T15:33:16+02:00",
+        "from": "2022-04-07T15:33:16+02:00",
         "to": "now"
       },
 
-      "filters": [{
-        "@type": "SortFilter",
-        "data_name": "Temperature"
-      }],
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
 
       "updates": {
         "update": true,
@@ -54,14 +62,22 @@
       ],
 
       "timestamp": {
-        "from": "2022-04-02T15:33:16+02:00",
+        "from": "2022-04-07T15:33:16+02:00",
         "to": "now"
       },
 
-      "filters": [{
-        "@type": "SortFilter",
-        "data_name": "Temperature"
-      }],
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
 
       "updates": {
         "update": true,
