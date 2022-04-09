@@ -11,10 +11,10 @@ public class StandardDeviationTest {
 
     @Test
     public void getBadIndexesTest(){
-        List<Float> dataList = Arrays.asList(1f,2f,43f);
-        Float mean = (float) ((1 + 2 + 43) / 3.0);
+        List<Double> dataList = Arrays.asList(1.0,2.0,43.0);
+        Double mean = (double) ((1 + 2 + 43) / 3.0);
         List<Integer> result = new ArrayList<>();
-        Float standardDeviation = (float) Math.sqrt(((1 - mean) * (1 - mean) + (2 - mean) * (2 - mean) + (43 - mean) * (43 - mean)) / 3.0);
+        Double standardDeviation = (double) Math.sqrt(((1 - mean) * (1 - mean) + (2 - mean) * (2 - mean) + (43 - mean) * (43 - mean)) / 3.0);
         for(int i=0;i<dataList.size();i+=1){
             if(Math.abs(dataList.get(i)-mean) > standardDeviation){
                 result.add(i);
