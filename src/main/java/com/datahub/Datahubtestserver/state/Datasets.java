@@ -2,6 +2,7 @@ package com.datahub.Datahubtestserver.state;
 
 import com.datahub.Datahubtestserver.model.Dataset;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +18,7 @@ public class Datasets {
 
     private Datasets()
     {
-        this.datasets = List.of();
+        this.datasets = new ArrayList<>();
     }
 
     public static Datasets getInstance()
