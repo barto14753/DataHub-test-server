@@ -39,6 +39,7 @@ public class Dataset {
         this.filters = filters;
         this.updates = updates;
         this.uploadRecords();
+        this.applyFilters();
 
     }
 
@@ -58,6 +59,14 @@ public class Dataset {
             e.printStackTrace();
         }
 
+    }
+
+    public void applyFilters()
+    {
+        for (Filter filter: filters)
+        {
+            filter.apply(sensors_data);
+        }
     }
 
     public DatasetType getType() {

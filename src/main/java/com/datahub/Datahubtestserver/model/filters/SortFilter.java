@@ -1,5 +1,6 @@
 package com.datahub.Datahubtestserver.model.filters;
 
+import com.datahub.Datahubtestserver.model.Data;
 import com.datahub.Datahubtestserver.model.Record;
 import com.datahub.Datahubtestserver.model.Timestamp;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -18,9 +19,7 @@ public class SortFilter implements Filter{
     }
 
     @Override
-    public List<Record> apply(List<Record> records) {
-        // TODO : Method should sort all datas same way (now they are sorted independent-ally)
-        return records.stream().sorted().toList();
+    public List<Data> apply(List<Data> data) {
+        return null;
     }
-
 }
