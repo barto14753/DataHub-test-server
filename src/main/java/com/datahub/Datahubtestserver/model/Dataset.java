@@ -8,6 +8,8 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 
 public class Dataset {
@@ -38,17 +40,18 @@ public class Dataset {
         this.timestamp = timestamp;
         this.filters = filters;
         this.updates = updates;
-        this.uploadRecords();
-        this.applyFilters();
+        // this.downloadRecords();
+        // this.applyFilters();
 
     }
 
-    public void uploadRecords()
+    public void downloadRecords()
     {
         try {
-            JSONArray jsonData = Downloader.download(url, timestamp);
-            for (Data data: static_data) data.uploadStaticRecords(jsonData);
-            for (Data data: sensors_data) data.uploadRecords(jsonData);
+            Downloader.download(url, timestamp).subscribe(jsonData -> {
+                for (Data data: static_data) data.uploadStaticRecords(jsonData);
+                for (Data data: sensors_data) data.uploadRecords(jsonData);
+            });
 
 
         } catch (JSONException e) {

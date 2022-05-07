@@ -16,8 +16,12 @@ public class RecordsFactory {
 
     public static List<Record> jsonsToRecord(JSONArray array, String source) throws JSONException, ParseException {
         List<Record> records = new ArrayList<>();
-        Record record = jsonToRecord(array.getJSONObject(0), source);
-        records.add(record);
+
+        if (array.length() > 0)
+        {
+            Record record = jsonToRecord(array.getJSONObject(0), source);
+            records.add(record);
+        }
         return records;
     }
 

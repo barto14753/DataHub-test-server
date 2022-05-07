@@ -4,9 +4,11 @@ import com.datahub.Datahubtestserver.download.RecordsFactory;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Data {
@@ -23,27 +25,24 @@ public class Data {
         this.name = name;
         this.source = source;
         this.unit = unit;
+        this.records = new ArrayList<>();
 
     }
 
-    public void uploadRecords(JSONArray data)
+    public void uploadRecords(JSONObject data)
     {
         try {
-            this.records = RecordsFactory.jsonsToRecords(data, this.source);
+            this.records.add(RecordsFactory.jsonToRecord(data, this.source));
         } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
     }
 
-    public void uploadStaticRecords(JSONArray data)
+    public void uploadStaticRecords(JSONObject data)
     {
         try {
-            this.records = RecordsFactory.jsonsToRecord(data, this.source);
+            this.records.add(RecordsFactory.jsonToRecord(data, this.source));
         } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
     }
