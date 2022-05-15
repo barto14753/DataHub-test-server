@@ -1,5 +1,7 @@
 package com.datahub.Datahubtestserver.state;
 import com.datahub.Datahubtestserver.model.Dataset;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -17,7 +19,9 @@ public class Datasets {
 
     private Datasets()
     {
-        this.datasets = Cache.loadCachedDatasets();
+        // TODO: loading from cache (requires modifying record mappping settings)
+        // this.datasets = Cache.loadCachedDatasets();
+        this.datasets = new ArrayList<>();
     }
 
     public static Datasets getInstance()

@@ -41,7 +41,10 @@ public class Data {
     public void uploadStaticRecords(JSONObject data)
     {
         try {
-            this.records.add(RecordsFactory.jsonToRecord(data, this.source));
+            if (records.size() == 0)
+            {
+                this.records.add(RecordsFactory.jsonToRecord(data, this.source));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
