@@ -1,6 +1,7 @@
 package com.datahub.Datahubtestserver.model;
 
 import com.datahub.Datahubtestserver.model.filters.TagType;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Record<T> {
@@ -8,6 +9,7 @@ public class Record<T> {
     @JsonProperty("timestamp") private String timestamp;
     @JsonProperty("tag") private TagType tag;
 
+    @JsonCreator
     public Record(T data, String timestamp)
     {
         this.data = data;

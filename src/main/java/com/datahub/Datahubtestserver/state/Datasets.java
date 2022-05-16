@@ -19,9 +19,7 @@ public class Datasets {
 
     private Datasets()
     {
-        // TODO: loading from cache (requires modifying record mappping settings)
-        // this.datasets = Cache.loadCachedDatasets();
-        this.datasets = new ArrayList<>();
+        this.datasets = Cache.loadCachedDatasets();
     }
 
     public static Datasets getInstance()
@@ -59,7 +57,7 @@ public class Datasets {
                 d.applyFilters();
                 System.out.println("Done download: " + d.getName());
 
-                System.out.println("Trying to cache: " + d.getName());
+                System.out.println("Trying to cache after download of: " + d.getName());
                 Cache.saveDatasetsToCache(datasets);
             });
         }

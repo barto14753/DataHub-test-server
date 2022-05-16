@@ -3,6 +3,7 @@ package com.datahub.Datahubtestserver.state;
 import com.datahub.Datahubtestserver.model.Dataset;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.paranamer.ParanamerModule;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +18,8 @@ public class Cache {
     public static List<Dataset> loadCachedDatasets()
     {
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new ParanamerModule());
+
 
         try
         {
