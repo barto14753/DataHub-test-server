@@ -1,30 +1,44 @@
 package com.datahub.Datahubtestserver.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.web.servlet.tags.EditorAwareTag;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Timestamp {
-    private String from;// non datetime format options: always
-    private String to; // non datetime format options: now
+    private final String from;// non datetime format options: always
+    private final String to; // non datetime format options: now
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
 
+    private static final long MILLIS_IN_A_HOUR = 1000 * 60 * 60;
+    private static final long MILLIS_IN_A_DAY = 1000 * 60 * 60 * 24;
+    private static final long MILLIS_IN_A_WEEK = 1000 * 60 * 60 * 24 * 7;
     public Timestamp(
             @JsonProperty("from") String from,
             @JsonProperty("to") String to)
     {
-        this.from = from;
+        this.from = getFrom(from);
         this.to = to;
+    }
+
+    private String getFrom(String from){
+        Date today = new Date();
+        return switch (from) {
+            case "hour" -> Timestamp.dateTimeFormat.format(today.getTime() - MILLIS_IN_A_HOUR);
+            case "day" -> Timestamp.dateTimeFormat.format(today.getTime() - MILLIS_IN_A_DAY);
+            case "week" -> Timestamp.dateTimeFormat.format(today.getTime() - MILLIS_IN_A_WEEK);
+            case "month" -> Timestamp.dateTimeFormat.format(today.getTime() - 4 * MILLIS_IN_A_WEEK);
+            default -> from;
+        };
     }
 
     public static Date getDate(String datetime) throws ParseException {
         return dateTimeFormat.parse(datetime);
     }
 
-    public static String getDate(Date datetime) throws ParseException {
+    public static String getDate(Date datetime) {
         return dateTimeFormat.format(datetime);
     }
 
