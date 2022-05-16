@@ -4,11 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Timestamp {
-    private final String from;// non datetime format options: always
+    private String from;// non datetime format options: always
     private final String to; // non datetime format options: now
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
 
@@ -19,17 +18,21 @@ public class Timestamp {
             @JsonProperty("from") String from,
             @JsonProperty("to") String to)
     {
-        this.from = getFrom(from);
+        try {
+            this.from = getFrom(from,to);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.to = to;
     }
 
-    private String getFrom(String from){
-        Date today = new Date();
+    private String getFrom(String from,String to) throws ParseException {
+        Date toDate = getDate(to);
         return switch (from) {
-            case "hour" -> Timestamp.dateTimeFormat.format(today.getTime() - MILLIS_IN_A_HOUR);
-            case "day" -> Timestamp.dateTimeFormat.format(today.getTime() - MILLIS_IN_A_DAY);
-            case "week" -> Timestamp.dateTimeFormat.format(today.getTime() - MILLIS_IN_A_WEEK);
-            case "month" -> Timestamp.dateTimeFormat.format(today.getTime() - 4 * MILLIS_IN_A_WEEK);
+            case "hour" -> Timestamp.dateTimeFormat.format(toDate.getTime() - MILLIS_IN_A_HOUR);
+            case "day" -> Timestamp.dateTimeFormat.format(toDate.getTime() - MILLIS_IN_A_DAY);
+            case "week" -> Timestamp.dateTimeFormat.format(toDate.getTime() - MILLIS_IN_A_WEEK);
+            case "month" -> Timestamp.dateTimeFormat.format(toDate.getTime() - 4 * MILLIS_IN_A_WEEK);
             default -> from;
         };
     }
