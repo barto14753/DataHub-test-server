@@ -72,15 +72,27 @@ public class Timestamp {
 //    }
 
     public boolean isInRange(String datetime) throws ParseException {
-        long millis = Timestamp.dateTimeFormat.parse(datetime).getTime();
-        boolean result = false;
-        if(!(FROM_MILLIS == null) && millis <= TO_MILLIS && millis >= FROM_MILLIS){
-            result = true;
+        Date date = getDate(datetime);
+        if (from.equals("always"))
+        {
+            if (to.equals("now")) return true;
+            else
+            {
+                Date _to = getDate(to);
+                return _to.after(date);
+            }
         }
-        else if(millis <= TO_MILLIS){
-            result = true;
+        else
+        {
+            Date from_ = getDate(from);
+            if (to.equals("now")) return from_.before(date);
+            else
+            {
+                Date _to = getDate(to);
+                return _to.after(date);
+            }
         }
-        return result;
+
     }
 
     public boolean isLate(String datetime) throws ParseException {
