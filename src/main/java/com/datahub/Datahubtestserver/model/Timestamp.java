@@ -27,7 +27,10 @@ public class Timestamp {
     }
 
     private String getFrom(String from,String to) throws ParseException {
-        Date toDate = getDate(to);
+        Date toDate = new Date();
+        if(!to.equals("now")){
+            toDate = Timestamp.dateTimeFormat.parse(to);
+        }
         return switch (from) {
             case "hour" -> Timestamp.dateTimeFormat.format(toDate.getTime() - MILLIS_IN_A_HOUR);
             case "day" -> Timestamp.dateTimeFormat.format(toDate.getTime() - MILLIS_IN_A_DAY);
