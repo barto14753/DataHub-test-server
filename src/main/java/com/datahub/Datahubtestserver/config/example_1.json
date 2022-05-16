@@ -1,0 +1,365 @@
+{
+  "datasets": [
+    {
+      "name": "Przy C-2",
+      "type": "CHART",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/50/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "PM_1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_2,5",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_10",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "µg/m3"
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "2022-04-01T15:33:16+02:00"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Ochotnica Dolna Urzad Gminy",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "Network Address",
+          "source": "networkAddr",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "PM_1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_2,5",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_10",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "µg/m3"
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Ochotnica Dolna Mlynne",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "ID",
+          "source": "id",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "PM_1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_2,5",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_10",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "µg/m3"
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "2022-04-01T15:33:16+02:00"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Tylmanowa Szkola Podst Sucharskiego",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/73/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "ID",
+          "source": "id",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "PM_1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_2,5",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_10",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "µg/m3"
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Tylmanowa Szkola Podst Twardowskiego",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "ID",
+          "source": "id",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "PM_1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_2,5",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_10",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "µg/m3"
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,77 @@
+{
+  "datasets": [
+    {
+      "name": "one day from date",
+      "type": "CHART",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/50/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "PM_1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_2,5",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "µg/m3"
+        },
+        {
+          "name": "PM_10",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "µg/m3"
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "2022-05-09T15:33:16+02:00"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    }
+  ]
+}
+
