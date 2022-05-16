@@ -97,12 +97,6 @@ public class Timestamp {
 
     }
 
-    public static long oneResultDifference(JSONObject jsonObject, JSONObject jsonObject1) throws JSONException, ParseException {
-        String datetime1 = jsonObject.getString("timestamp");
-        String datetime2 = jsonObject1.getString("timestamp");
-
-        return Timestamp.dateTimeFormat.parse(datetime1).getTime() - Timestamp.dateTimeFormat.parse(datetime2).getTime();
-    }
 
     public static long getMillis(JSONObject jsonObject) throws JSONException, ParseException {
         return Timestamp.dateTimeFormat.parse(jsonObject.getString("timestamp")).getTime();
