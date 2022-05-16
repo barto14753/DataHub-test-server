@@ -19,28 +19,39 @@ public class DatasetsController {
     @ResponseBody
     public Dataset getDataset(@PathVariable String dataset)
     {
-        return datasets.getDataset(dataset);
+        return Optional.ofNullable(datasets)
+                .map(d -> d.getDataset(dataset))
+                .orElse(null);
     }
 
     @GetMapping("/{dataset}/{data}")
     @ResponseBody
     public Data getDataset(@PathVariable String dataset, @PathVariable String data)
     {
-        return datasets.getDataset(dataset).getData(data);
+        return Optional.ofNullable(datasets)
+                .map(d -> d.getDataset(dataset))
+                .map(d -> d.getData(data))
+                .orElse(null);
     }
 
     @GetMapping("/{dataset}/{data}/records")
     @ResponseBody
     public List<Record> getData(@PathVariable String dataset, @PathVariable String data)
     {
-        return datasets.getDataset(dataset).getData(data).getRecords();
+        return Optional.ofNullable(datasets)
+                .map(d -> d.getDataset(dataset))
+                .map(d -> d.getData(data))
+                .map(Data::getRecords)
+                .orElse(null);
     }
 
     @GetMapping("/all")
     @ResponseBody
     public List<Dataset> getAllDatasets()
     {
-        return datasets.getDatasets();
+        return Optional.ofNullable(datasets)
+                .map(Datasets::getDatasets)
+                .orElse(null);
     }
 
     @GetMapping("/allNames")
