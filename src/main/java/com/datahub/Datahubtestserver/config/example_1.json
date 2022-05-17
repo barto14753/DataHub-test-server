@@ -73,7 +73,7 @@
       }
     },
     {
-      "name": "Ochotnica Dolna Urzad Gminy",
+      "name": "OD Urzad Gminy",
       "type": "DATA",
       "url": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
       "static_data": [
@@ -145,7 +145,7 @@
       }
     },
     {
-      "name": "Ochotnica Dolna Mlynne",
+      "name": "OD Mlynne",
       "type": "DATA",
       "url": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
       "static_data": [
@@ -217,7 +217,7 @@
       }
     },
     {
-      "name": "Tylmanowa Szkola Podst Sucharskiego",
+      "name": "T. SP. Sucharskiego",
       "type": "DATA",
       "url": "https://datahub.ki.agh.edu.pl/api/endpoints/73/data/",
       "static_data": [
@@ -289,7 +289,7 @@
       }
     },
     {
-      "name": "Tylmanowa Szkola Podst Twardowskiego",
+      "name": "T. SP. Twardowskiego",
       "type": "DATA",
       "url": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/",
       "static_data": [
@@ -338,7 +338,7 @@
       ],
 
       "timestamp": {
-        "from": "month",
+        "from": "day",
         "to": "now"
       },
 
