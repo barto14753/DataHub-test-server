@@ -21,7 +21,7 @@ public class ConfigMapperTests {
         List<Data> sensors_data = List.of(data);
         Dataset dataset = new Dataset("new_data", DatasetType.CHART,
                 "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
-                List.of(), sensors_data, timestamp, List.of(), updates);
+                List.of(), sensors_data, List.of(), timestamp, List.of(), updates);
         Config config = new Config(List.of(dataset));
 
         ObjectMapper objectMapper = new ObjectMapper();

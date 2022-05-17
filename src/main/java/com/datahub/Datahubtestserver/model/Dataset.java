@@ -2,6 +2,8 @@ package com.datahub.Datahubtestserver.model;
 
 import com.datahub.Datahubtestserver.download.Downloader;
 import com.datahub.Datahubtestserver.model.filters.Filter;
+import com.datahub.Datahubtestserver.model.plots.Plot;
+import com.datahub.Datahubtestserver.model.plots.PlotData;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +20,7 @@ public class Dataset {
     private String url;
     private List<Data> static_data;
     private List<Data> sensors_data;
+    private List<Plot> plots;
     private Timestamp timestamp;
     private List<Filter> filters;
     private Updates updates;
@@ -28,6 +31,7 @@ public class Dataset {
             @JsonProperty("url") String url,
             @JsonProperty("static_data") List<Data> static_data,
             @JsonProperty("sensors_data") List<Data> sensors_data,
+            @JsonProperty("plots") List<Plot> plots,
             @JsonProperty("timestamp") Timestamp timestamp,
             @JsonProperty("filters") List<Filter> filters,
             @JsonProperty("updates") Updates updates)
@@ -37,11 +41,11 @@ public class Dataset {
         this.url = url;
         this.static_data = static_data;
         this.sensors_data = sensors_data;
+        this.plots = plots;
         this.timestamp = timestamp;
         this.filters = filters;
         this.updates = updates;
-        // this.downloadRecords();
-        // this.applyFilters();
+
 
     }
 
@@ -106,5 +110,9 @@ public class Dataset {
 
     public String getName() {
         return name;
+    }
+
+    public List<Plot> getPlots() {
+        return plots;
     }
 }

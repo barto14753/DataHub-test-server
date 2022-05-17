@@ -2,12 +2,8 @@ package com.datahub.Datahubtestserver.model;
 
 import com.datahub.Datahubtestserver.download.RecordsFactory;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
