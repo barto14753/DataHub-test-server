@@ -1,1 +1,264 @@
-{"datasets":[{"name":"new_data","type":"CHART","url":"https://datahub.ki.agh.edu.pl/api/endpoints/70/data/","static_data":[],"sensors_data":[{"name":"Temperature","source":"heater.tempSet","unit":"celsius","records":[]}],"timestamp":{"from":"2022-04-02T15:33:16+02:00","to":"now","FROM_MILLIS":1648906396000,"TO_MILLIS":1652813231532,"fromNow":true},"filters":[],"updates":{"update":true,"update_interval_sec":600}}]}
+{
+  "datasets": [
+    {
+      "name": "dataset_1",
+      "type": "CHART",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Pressure",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Humidity",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature and Pressure",
+          "plot_data": [
+            {
+              "data_name": "Temperature",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "Pressure",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Temperature and Humidity",
+          "plot_data": [
+            {
+              "data_name": "Temperature",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "Humidity",
+              "plot_color": "yellow"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "2022-05-15T15:33:16+02:00",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "dataset_2",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "Network Address",
+          "source": "networkAddr",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "devPoint",
+          "source": "envSensor.pressure",
+          "unit": "celsius"
+        },
+        {
+          "name": "EnvSensor Temperature",
+          "source": "envSensor.temperature",
+          "unit": "celsius"
+        },
+        {
+          "name": "Heater Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "DevPoint and Temp",
+          "plot_data": [
+            {
+              "data_name": "devPoint",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "EnvSensor Temperature",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "DevPoint and Heater Temp ",
+          "plot_data": [
+            {
+              "data_name": "devPoint",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "Heater Temperature",
+              "plot_color": "yellow"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "2022-05-15T15:33:16+02:00",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "dataset_3",
+      "type": "DATA",
+      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
+      "static_data": [
+        {
+          "name": "Location",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "ID",
+          "source": "id",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "devPoint",
+          "source": "envSensor.pressure",
+          "unit": "celsius"
+        },
+        {
+          "name": "Voltage",
+          "source": "supplyVoltage",
+          "unit": "V"
+        },
+        {
+          "name": "Temperature",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        }
+      ],
+
+
+      "plots": [
+        {
+          "plot_name": "DevPoint and Voltage",
+          "plot_data": [
+            {
+              "data_name": "devPoint",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "Voltage",
+              "plot_color": "black"
+            }
+          ]
+        },
+        {
+          "plot_name": "DevPoint and Temp",
+          "plot_data": [
+            {
+              "data_name": "devPoint",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "Temperature",
+              "plot_color": "green"
+            }
+          ]
+        }
+      ],
+
+
+      "timestamp": {
+        "from": "2022-05-15T15:33:16+02:00",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    }
+  ]
+}
