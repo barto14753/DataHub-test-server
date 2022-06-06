@@ -14,8 +14,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Downloader {
     public static JSONObject download(String url) throws IOException, JSONException {
@@ -36,10 +34,10 @@ public class Downloader {
 
     }
 
-    public static Observable<JSONObject> download(String url, Timestamp timestamp) throws JSONException, IOException, InterruptedException {
-        return Observable.create(emitter -> {
-            JSONArray result = new JSONArray();
+    public static Observable<JSONObject> download(String url_, Timestamp timestamp) throws JSONException, IOException, InterruptedException {
+        String url = url_ + "?limit=100"; // max limit (less calls for api data)
 
+        return Observable.create(emitter -> {
             try
             {
                 JSONObject data = Downloader.download(url);
