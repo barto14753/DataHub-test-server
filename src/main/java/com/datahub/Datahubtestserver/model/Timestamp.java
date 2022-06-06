@@ -40,7 +40,7 @@ public class Timestamp {
         }
     }
 
-    private String getFrom(String from,String to) throws ParseException {
+    private String getFrom(String from, String to) throws ParseException {
         long millis= new Date().getTime();
         if(!to.equals("now")){
             millis = Timestamp.dateTimeFormat.parse(to).getTime();
@@ -63,13 +63,6 @@ public class Timestamp {
         return dateTimeFormat.format(datetime);
     }
 
-//    public String getFrom() {
-//        return from;
-//    }
-//
-//    public String getTo() {
-//        return to;
-//    }
 
     public boolean isInRange(String datetime) throws ParseException {
         Date date = getDate(datetime);
@@ -106,8 +99,15 @@ public class Timestamp {
 
     }
 
+    public TimePeriodSelection getTimePeriodSelection(String recordTimestamp) throws ParseException {
+        long millisRecord = Timestamp.dateTimeFormat.parse(recordTimestamp).getTime();
+        long diff = TO_MILLIS - millisRecord;
 
-//    public static long getMillis(JSONObject jsonObject) throws JSONException, ParseException {
-//        return Timestamp.dateTimeFormat.parse(jsonObject.getString("timestamp")).getTime();
-//    }
+        if (diff < MILLIS_IN_A_HOUR) return TimePeriodSelection.HOUR;
+        else if (diff < MILLIS_IN_A_DAY) return TimePeriodSelection.DAY;
+        else if (diff < MILLIS_IN_A_WEEK) return TimePeriodSelection.WEEK;
+        else if (diff < MILLIS_IN_A_WEEK * 4) return TimePeriodSelection.MONTH;
+        else return TimePeriodSelection.MORE;
+    }
+
 }

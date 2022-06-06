@@ -1,6 +1,7 @@
 package com.datahub.Datahubtestserver.download;
 
 import com.datahub.Datahubtestserver.model.Record;
+import com.datahub.Datahubtestserver.model.TimePeriodSelection;
 import com.datahub.Datahubtestserver.model.Timestamp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
@@ -43,6 +44,9 @@ public class Downloader {
                 JSONObject data = Downloader.download(url);
 
                 boolean finished = false;
+                TimePeriodSelection selection = TimePeriodSelection.HOUR;
+                int iter = 0;
+
                 while (!finished && data != null)
                 {
                     JSONArray array = data.getJSONArray("results");
@@ -51,7 +55,21 @@ public class Downloader {
                         JSONObject obj = array.getJSONObject(i);
                         String datetime = obj.getString("timestamp");
                         try {
-                            if (timestamp.isInRange(datetime)) emitter.onNext(obj);
+                            if (timestamp.isInRange(datetime))
+                            {
+                                iter = (iter + 1) % selection.getSelectionRating();
+                                TimePeriodSelection actualSelection = timestamp.getTimePeriodSelection(datetime);
+                                if (actualSelection != selection)
+                                {
+                                    selection = actualSelection;
+                                    iter = 0;
+                                }
+
+                                if (iter == 0)
+                                {
+                                    emitter.onNext(obj);
+                                }
+                            }
                             else if (timestamp.isLate(datetime))
                             {
                                 finished = true;
