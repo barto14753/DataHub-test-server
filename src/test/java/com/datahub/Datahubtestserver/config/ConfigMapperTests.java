@@ -12,23 +12,23 @@ import java.io.IOException;
 import java.util.List;
 
 public class ConfigMapperTests {
-    @Test
-    public void fromObjectToJSONTest() throws IOException {
-        Updates updates = new Updates(true, 600);
-        Timestamp timestamp = new Timestamp("2022-04-02T15:33:16+02:00", "now");
-        Data data = new Data("Temperature",
-                "heater.tempSet", "celsius");
-        List<Data> sensors_data = List.of(data);
-        Dataset dataset = new Dataset("new_data", DatasetType.CHART,
-                "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
-                List.of(), sensors_data, List.of(), timestamp, List.of(), updates);
-        Config config = new Config(List.of(dataset));
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        objectMapper.writeValue(new File("src/main/java/com/datahub/Datahubtestserver/config/config.json"), config);
-
-    }
+//    @Test
+//    public void fromObjectToJSONTest() throws IOException {
+//        Updates updates = new Updates(true, 600);
+//        Timestamp timestamp = new Timestamp("2022-04-02T15:33:16+02:00", "now");
+//        Data data = new Data("Temperature",
+//                "heater.tempSet", "celsius");
+//        List<Data> sensors_data = List.of(data);
+//        Dataset dataset = new Dataset("new_data", DatasetType.CHART,
+//                "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
+//                List.of(), sensors_data, List.of(), timestamp, List.of(), updates);
+//        Config config = new Config(List.of(dataset));
+//
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+//        objectMapper.writeValue(new File("src/main/java/com/datahub/Datahubtestserver/config/config.json"), config);
+//
+//    }
 
     @Test
     public void fromJSONToObjectTest() throws IOException {

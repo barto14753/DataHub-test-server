@@ -9,16 +9,19 @@ import java.util.List;
 
 public class Data {
     private final String name;
+    private final String url;
     private final String source;
     private final String unit;
     private List<Record> records;
 
     public Data(
             @JsonProperty("name") String name,
+            @JsonProperty("url") String url,
             @JsonProperty("source") String source,
             @JsonProperty("unit") String unit)
     {
         this.name = name;
+        this.url = url;
         this.source = source;
         this.unit = unit;
         this.records = new ArrayList<>();
@@ -57,6 +60,8 @@ public class Data {
     public String getUnit() {
         return unit;
     }
+
+    public String getUrl(){return url;};
 
     public List<Record> getRecords() { return records; }
 }

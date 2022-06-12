@@ -10,6 +10,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
@@ -17,7 +18,7 @@ import java.util.stream.Stream;
 public class Dataset {
     private String name;
     private DatasetType type;
-    private String url;
+    private Map<String,String> urls;
     private List<Data> static_data;
     private List<Data> sensors_data;
     private List<Plot> plots;
@@ -27,8 +28,7 @@ public class Dataset {
 
     public Dataset(
             @JsonProperty("name") String name,
-            @JsonProperty("type") DatasetType type,
-            @JsonProperty("url") String url,
+            @JsonProperty("urls") Map<String,String> urls,
             @JsonProperty("static_data") List<Data> static_data,
             @JsonProperty("sensors_data") List<Data> sensors_data,
             @JsonProperty("plots") List<Plot> plots,
@@ -37,8 +37,7 @@ public class Dataset {
             @JsonProperty("updates") Updates updates)
     {
         this.name = name;
-        this.type = type;
-        this.url = url;
+        this.urls = urls;
         this.static_data = static_data;
         this.sensors_data = sensors_data;
         this.plots = plots;
@@ -49,13 +48,22 @@ public class Dataset {
 
     }
 
-    public void downloadRecords()
-    {
+    public void downloadRecords() {
         try {
-            Downloader.download(url, timestamp).subscribe(jsonData -> {
-                for (Data data: static_data) data.uploadStaticRecords(jsonData);
-                for (Data data: sensors_data) data.uploadRecords(jsonData);
-            });
+            for(String url: urls.keySet()){
+                Downloader.download(urls.get(url), timestamp).subscribe(jsonData -> {
+                    for (Data data: static_data) {
+                        if(data.getUrl().equals(url)){
+                            data.uploadStaticRecords(jsonData);
+                        }
+                    }
+                    for (Data data: sensors_data) {
+                        if(data.getUrl().equals(url)){
+                            data.uploadRecords(jsonData);
+                        }
+                    }
+                });
+            }
 
 
         } catch (JSONException e) {
@@ -88,8 +96,8 @@ public class Dataset {
         return static_data;
     }
 
-    public String getUrl() {
-        return url;
+    public Map<String,String> getUrls() {
+        return urls;
     }
 
     public Updates getUpdates() {

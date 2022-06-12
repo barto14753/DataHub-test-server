@@ -3,15 +3,21 @@
     {
       "name": "dataset_1",
       "type": "CHART",
-      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
+        "url3": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/"
+      },
       "static_data": [
         {
           "name": "Location",
+          "url": "url1",
           "source": "location.locName",
           "unit": null
         },
         {
           "name": "IP",
+          "url": "url1",
           "source": "tun0IP",
           "unit": null
         }
@@ -19,16 +25,25 @@
       "sensors_data": [
         {
           "name": "Temperature",
+          "url": "url1",
           "source": "heater.tempSet",
           "unit": "celsius"
         },
         {
-          "name": "Pressure",
-          "source": "envSensor.pressure",
-          "unit": "Pa"
+          "name": "Temperature3",
+          "url": "url3",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Temperature2",
+          "url": "url2",
+          "source": "heater.tempSet",
+          "unit": "celsius"
         },
         {
           "name": "Humidity",
+          "url": "url1",
           "source": "envSensor.relativeHumidity",
           "unit": "%"
         }
@@ -36,14 +51,18 @@
 
       "plots": [
         {
-          "plot_name": "Temperature and Pressure",
+          "plot_name": "Temp1 and Temp2",
           "plot_data": [
             {
               "data_name": "Temperature",
               "plot_color": "red"
             },
             {
-              "data_name": "Pressure",
+              "data_name": "Temperature3",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Temperature2",
               "plot_color": "blue"
             }
           ]
@@ -64,7 +83,7 @@
       ],
 
       "timestamp": {
-        "from": "2022-05-15T15:33:16+02:00",
+        "from": "day",
         "to": "now"
       },
 
@@ -89,15 +108,20 @@
     {
       "name": "dataset_2",
       "type": "DATA",
-      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/"
+      },
       "static_data": [
         {
           "name": "Location",
+          "url": "url1",
           "source": "location.locName",
           "unit": null
         },
         {
           "name": "Network Address",
+          "url": "url1",
           "source": "networkAddr",
           "unit": null
         }
@@ -105,16 +129,19 @@
       "sensors_data": [
         {
           "name": "devPoint",
+          "url": "url1",
           "source": "envSensor.pressure",
           "unit": "celsius"
         },
         {
           "name": "EnvSensor Temperature",
+          "url": "url1",
           "source": "envSensor.temperature",
           "unit": "celsius"
         },
         {
           "name": "Heater Temperature",
+          "url": "url1",
           "source": "heater.tempSet",
           "unit": "celsius"
         }
@@ -150,7 +177,7 @@
       ],
 
       "timestamp": {
-        "from": "2022-05-15T15:33:16+02:00",
+        "from": "day",
         "to": "now"
       },
 
@@ -175,15 +202,20 @@
     {
       "name": "dataset_3",
       "type": "DATA",
-      "url": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/"
+      },
       "static_data": [
         {
           "name": "Location",
+          "url": "url1",
           "source": "location.locName",
           "unit": null
         },
         {
           "name": "ID",
+          "url": "url1",
           "source": "id",
           "unit": null
         }
@@ -191,16 +223,19 @@
       "sensors_data": [
         {
           "name": "devPoint",
+          "url": "url1",
           "source": "envSensor.pressure",
           "unit": "celsius"
         },
         {
           "name": "Voltage",
+          "url": "url1",
           "source": "supplyVoltage",
           "unit": "V"
         },
         {
           "name": "Temperature",
+          "url": "url1",
           "source": "heater.tempSet",
           "unit": "celsius"
         }
@@ -238,7 +273,7 @@
 
 
       "timestamp": {
-        "from": "2022-05-15T15:33:16+02:00",
+        "from": "day",
         "to": "now"
       },
 

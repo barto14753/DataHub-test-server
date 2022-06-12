@@ -31,7 +31,7 @@ public class Cache {
         catch(IOException e)
         {
             System.out.println("Cannot read cache file");
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }

@@ -11,16 +11,16 @@ public enum TimePeriodSelection {
                 return 1;
             }
             case DAY -> {
-                return 2;
+                return 5;
             }
             case WEEK -> {
-                return 8;
+                return 10;
             }
             case MONTH -> {
-                return 15;
+                return 20;
             }
             default -> {
-                return 25;
+                return 40;
             }
         }
     }
