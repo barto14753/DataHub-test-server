@@ -1,0 +1,637 @@
+{
+  "datasets": [
+    {
+      "name": "Tylmanowa - Szkoły podstawowe - last hour",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/73/data/",
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/"
+      },
+      "static_data": [
+        {
+          "name": "Location",
+          "url": "url1",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url1",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url2",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url2",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Sucharskiego Temperature",
+          "url": "url1",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Sucharskiego Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Sucharskiego Pressure",
+          "url": "url1",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Sucharskiego pm1",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "Sucharskiego pm2_5",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "Sucharskiego pm10",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego Temperature",
+          "url": "url2",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Twardowskiego Humidity",
+          "url": "url2",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Twardowskiego Pressure",
+          "url": "url2",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Twardowskiego pm1",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego pm2_5",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego pm10",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Temperature",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Temperature",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Humidity",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Humidity",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Humidity",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Pressure",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Pressure",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Pressure",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 1",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm1",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm1",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 2_5",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm2_5",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm2_5",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 10",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm10",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm10",
+              "plot_color": "blue"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "hour",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature1"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature1"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Tylmanowa - Szkoły podstawowe - last day",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/73/data/",
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/"
+      },
+      "static_data": [
+        {
+          "name": "Location",
+          "url": "url1",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url1",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url2",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url2",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Sucharskiego Temperature",
+          "url": "url1",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Sucharskiego Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Sucharskiego Pressure",
+          "url": "url1",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Sucharskiego pm1",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "Sucharskiego pm2_5",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "Sucharskiego pm10",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego Temperature",
+          "url": "url2",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Twardowskiego Humidity",
+          "url": "url2",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Twardowskiego Pressure",
+          "url": "url2",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Twardowskiego pm1",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego pm2_5",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego pm10",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Temperature",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Temperature",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Humidity",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Humidity",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Humidity",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Pressure",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Pressure",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Pressure",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 1",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm1",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm1",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 2_5",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm2_5",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm2_5",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 10",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm10",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm10",
+              "plot_color": "blue"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature1"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature1"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Tylmanowa - Szkoły podstawowe - last week",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/73/data/",
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/"
+      },
+      "static_data": [
+        {
+          "name": "Location",
+          "url": "url1",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url1",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url2",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url2",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Sucharskiego Temperature",
+          "url": "url1",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Sucharskiego Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Sucharskiego Pressure",
+          "url": "url1",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Sucharskiego pm1",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "Sucharskiego pm2_5",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "Sucharskiego pm10",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego Temperature",
+          "url": "url2",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Twardowskiego Humidity",
+          "url": "url2",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Twardowskiego Pressure",
+          "url": "url2",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "Twardowskiego pm1",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego pm2_5",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "Twardowskiego pm10",
+          "url": "url2",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Temperature",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Temperature",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Humidity",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Humidity",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Humidity",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Pressure",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego Pressure",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego Pressure",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 1",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm1",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm1",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 2_5",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm2_5",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm2_5",
+              "plot_color": "blue"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter 10",
+          "plot_data": [
+            {
+              "data_name": "Sucharskiego pm10",
+              "plot_color": "green"
+            },
+            {
+              "data_name": "Twardowskiego pm10",
+              "plot_color": "blue"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "week",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature1"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature1"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    }
+  ]
+}
