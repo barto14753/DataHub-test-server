@@ -80,9 +80,10 @@ public class Downloader {
                         {
                             System.out.println("Exception: Empty timestamp");
                         }
-                        catch (ParseException e) {
-                            e.printStackTrace();
+                        catch (Exception e) {
+                            //e.printStackTrace();
                         }
+
                     }
 
                     if (data.has("next")) data = Downloader.download(data.getString("next"));
@@ -96,6 +97,19 @@ public class Downloader {
 
         });
 
+    }
+
+    public static JSONObject downloadLatestRecord(String url, Timestamp timestamp) throws JSONException, IOException, ParseException {
+        JSONObject data = Downloader.download(url);
+        JSONArray array = data.getJSONArray("results");
+        JSONObject obj = array.getJSONObject(0);
+        String datetime = obj.getString("timestamp");
+
+        if (timestamp.isInRange(datetime))
+        {
+            return obj;
+        }
+        return null;
 
     }
 

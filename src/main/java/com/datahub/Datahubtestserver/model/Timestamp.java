@@ -110,4 +110,23 @@ public class Timestamp {
         else return TimePeriodSelection.MORE;
     }
 
+    public static Date stringToDate(String datetime) throws ParseException {
+        return Timestamp.dateTimeFormat.parse(datetime);
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
 }

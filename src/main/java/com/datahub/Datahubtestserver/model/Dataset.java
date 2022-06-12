@@ -7,8 +7,13 @@ import com.datahub.Datahubtestserver.model.plots.PlotData;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.sql.Time;
+import java.text.ParseException;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -44,6 +49,8 @@ public class Dataset {
         this.timestamp = timestamp;
         this.filters = filters;
         this.updates = updates;
+        this.updates.setUpdate(this);
+
 
 
     }
@@ -65,15 +72,40 @@ public class Dataset {
                 });
             }
 
-
         } catch (JSONException e) {
-            e.printStackTrace();
+            System.out.println("Cannot download | Remember to run VPN");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
 
+    public void updateRecords()
+    {
+        if (
+                timestamp == null ||
+                timestamp.getFrom().equals("") ||
+                timestamp.getTo().equals("")
+        ) {
+            return;
+        }
+        try {
+            for(String url: urls.keySet()){
+                JSONObject jsonObject = Downloader.downloadLatestRecord(urls.get(url), timestamp);
+                System.out.println("Update download obj: " + jsonObject);
+                for (Data data: sensors_data) {
+                    if(data.getUrl().equals(url)){
+                        data.uploadUpdatedRecords(jsonObject);
+                    }
+                }
+            }
+
+        } catch (JSONException e) {
+            System.out.println("Cannot download | Remember to run VPN");
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public void applyFilters()
