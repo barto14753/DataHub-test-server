@@ -1,0 +1,388 @@
+{
+  "datasets": [
+    {
+      "name": "Tylmanowa - SP twardowskiego - last hour",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/"
+      },
+      "static_data": [
+        {
+          "name": "Location",
+          "url": "url1",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url1",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "url": "url1",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Pressure",
+          "url": "url1",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "pm1",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "pm2_5",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "pm10",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature",
+          "plot_data": [
+            {
+              "data_name": "Temperature",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Humidity",
+          "plot_data": [
+            {
+              "data_name": "Humidity",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Pressure",
+          "plot_data": [
+            {
+              "data_name": "Pressure",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter",
+          "plot_data": [
+            {
+              "data_name": "pm1",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "pm2_5",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "pm10",
+              "plot_color": "green"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "hour",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature1"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature1"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Tylmanowa - SP twardowskiego - last day",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/"
+      },
+      "static_data": [
+        {
+          "name": "Location",
+          "url": "url1",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url1",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "url": "url1",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Pressure",
+          "url": "url1",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "pm1",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "pm2_5",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "pm10",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature",
+          "plot_data": [
+            {
+              "data_name": "Temperature",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Humidity",
+          "plot_data": [
+            {
+              "data_name": "Humidity",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Pressure",
+          "plot_data": [
+            {
+              "data_name": "Pressure",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter",
+          "plot_data": [
+            {
+              "data_name": "pm1",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "pm2_5",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "pm10",
+              "plot_color": "green"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "day",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature1"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature1"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    },
+    {
+      "name": "Tylmanowa - SP twardowskiego - last week",
+      "urls": {
+        "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/74/data/"
+      },
+      "static_data": [
+        {
+          "name": "Location",
+          "url": "url1",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url1",
+          "source": "tun0IP",
+          "unit": null
+        }
+      ],
+      "sensors_data": [
+        {
+          "name": "Temperature",
+          "url": "url1",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Pressure",
+          "url": "url1",
+          "source": "envSensor.pressure",
+          "unit": "Pa"
+        },
+        {
+          "name": "pm1",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm1",
+          "unit": "qm"
+        },
+        {
+          "name": "pm2_5",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm2_5",
+          "unit": "qm"
+        },
+        {
+          "name": "pm10",
+          "url": "url1",
+          "source": "particleConcentrationSensor.concentration.pm10",
+          "unit": "qm"
+        }
+      ],
+
+      "plots": [
+        {
+          "plot_name": "Temperature",
+          "plot_data": [
+            {
+              "data_name": "Temperature",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Humidity",
+          "plot_data": [
+            {
+              "data_name": "Humidity",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Pressure",
+          "plot_data": [
+            {
+              "data_name": "Pressure",
+              "plot_color": "green"
+            }
+          ]
+        },
+        {
+          "plot_name": "Particulate matter",
+          "plot_data": [
+            {
+              "data_name": "pm1",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "pm2_5",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "pm10",
+              "plot_color": "green"
+            }
+          ]
+        }
+      ],
+
+      "timestamp": {
+        "from": "week",
+        "to": "now"
+      },
+
+      "filters": [
+        {
+          "@type": "OutlierFilter",
+          "data_names": [
+            "Temperature1"
+          ]
+        },
+        {
+          "@type": "SortFilter",
+          "data_name": "Temperature1"
+        }
+      ],
+
+      "updates": {
+        "update": true,
+        "update_interval_sec": 600
+      }
+    }
+  ]
+}
