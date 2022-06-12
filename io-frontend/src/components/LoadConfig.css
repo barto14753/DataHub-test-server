@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@700&display=swap');
+
+.load-config-container {
+    background-color: azure;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-upload-sublabel {
+    font-size: 1rem;
+}
+
+.file-upload-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-upload-box {
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    border-radius: 20px;
+    width: 840px;
+    padding: 35px 90px 15px 90px;
+}
+
+.file-upload-title {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Radio Canada';
+    color: rgb(170, 69, 11);
+    margin-bottom: 25px;
+}
+
+.file-upload-subtitle {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.removed {
+    display: none;
+}
