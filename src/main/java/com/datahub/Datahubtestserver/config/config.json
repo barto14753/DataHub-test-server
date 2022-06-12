@@ -1,12 +1,11 @@
 {
   "datasets": [
     {
-      "name": "dataset_1",
-      "type": "CHART",
+      "name": "Ochotnica Dolna - last day",
       "urls": {
         "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
-        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/",
-        "url3": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/"
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
+        "url3": "https://datahub.ki.agh.edu.pl/api/endpoints/75/data/"
       },
       "static_data": [
         {
@@ -20,30 +19,66 @@
           "url": "url1",
           "source": "tun0IP",
           "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url2",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url2",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url3",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url3",
+          "source": "tun0IP",
+          "unit": null
         }
       ],
       "sensors_data": [
         {
-          "name": "Temperature",
+          "name": "Urzad Gminy Temperature",
           "url": "url1",
           "source": "heater.tempSet",
           "unit": "celsius"
         },
         {
-          "name": "Temperature3",
-          "url": "url3",
-          "source": "heater.tempSet",
-          "unit": "celsius"
-        },
-        {
-          "name": "Temperature2",
+          "name": "Mlynne Temperature",
           "url": "url2",
           "source": "heater.tempSet",
           "unit": "celsius"
         },
         {
-          "name": "Humidity",
+          "name": "Szkola M Konopnickiej Temperature",
+          "url": "url3",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Urzad Gminy Humidity",
           "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Mlynne Humidity",
+          "url": "url2",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Szkola M Konopnickiej Humidity",
+          "url": "url3",
           "source": "envSensor.relativeHumidity",
           "unit": "%"
         }
@@ -51,32 +86,36 @@
 
       "plots": [
         {
-          "plot_name": "Temp1 and Temp2",
+          "plot_name": "Temperature",
           "plot_data": [
             {
-              "data_name": "Temperature",
+              "data_name": "Urzad Gminy Temperature",
               "plot_color": "red"
             },
             {
-              "data_name": "Temperature3",
-              "plot_color": "green"
+              "data_name": "Mlynne Temperature",
+              "plot_color": "blue"
             },
             {
-              "data_name": "Temperature2",
-              "plot_color": "blue"
+              "data_name": "Szkola M Konopnickiej Temperature",
+              "plot_color": "green"
             }
           ]
         },
         {
-          "plot_name": "Temperature and Humidity",
+          "plot_name": "Humidity",
           "plot_data": [
             {
-              "data_name": "Temperature",
+              "data_name": "Urzad Gminy Humidity",
               "plot_color": "red"
             },
             {
-              "data_name": "Humidity",
-              "plot_color": "yellow"
+              "data_name": "Mlynne Humidity",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "Szkola M Konopnickiej Humidity",
+              "plot_color": "green"
             }
           ]
         }
@@ -106,11 +145,11 @@
       }
     },
     {
-      "name": "dataset_2",
-      "type": "DATA",
+      "name": "Ochotnica Dolna - last week",
       "urls": {
         "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
-        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/"
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
+        "url3": "https://datahub.ki.agh.edu.pl/api/endpoints/75/data/"
       },
       "static_data": [
         {
@@ -120,64 +159,114 @@
           "unit": null
         },
         {
-          "name": "Network Address",
+          "name": "IP",
           "url": "url1",
-          "source": "networkAddr",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url2",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url2",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url3",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url3",
+          "source": "tun0IP",
           "unit": null
         }
       ],
       "sensors_data": [
         {
-          "name": "devPoint",
-          "url": "url1",
-          "source": "envSensor.pressure",
-          "unit": "celsius"
-        },
-        {
-          "name": "EnvSensor Temperature",
-          "url": "url1",
-          "source": "envSensor.temperature",
-          "unit": "celsius"
-        },
-        {
-          "name": "Heater Temperature",
+          "name": "Urzad Gminy Temperature",
           "url": "url1",
           "source": "heater.tempSet",
           "unit": "celsius"
+        },
+        {
+          "name": "Mlynne Temperature",
+          "url": "url2",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Szkola M Konopnickiej Temperature",
+          "url": "url3",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Urzad Gminy Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Mlynne Humidity",
+          "url": "url2",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Szkola M Konopnickiej Humidity",
+          "url": "url3",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
         }
       ],
 
       "plots": [
         {
-          "plot_name": "DevPoint and Temp",
+          "plot_name": "Temperature",
           "plot_data": [
             {
-              "data_name": "devPoint",
+              "data_name": "Urzad Gminy Temperature",
               "plot_color": "red"
             },
             {
-              "data_name": "EnvSensor Temperature",
+              "data_name": "Mlynne Temperature",
               "plot_color": "blue"
+            },
+            {
+              "data_name": "Szkola M Konopnickiej Temperature",
+              "plot_color": "green"
             }
           ]
         },
         {
-          "plot_name": "DevPoint and Heater Temp ",
+          "plot_name": "Humidity",
           "plot_data": [
             {
-              "data_name": "devPoint",
+              "data_name": "Urzad Gminy Humidity",
               "plot_color": "red"
             },
             {
-              "data_name": "Heater Temperature",
-              "plot_color": "yellow"
+              "data_name": "Mlynne Humidity",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "Szkola M Konopnickiej Humidity",
+              "plot_color": "green"
             }
           ]
         }
       ],
 
       "timestamp": {
-        "from": "day",
+        "from": "week",
         "to": "now"
       },
 
@@ -200,11 +289,11 @@
       }
     },
     {
-      "name": "dataset_3",
-      "type": "DATA",
+      "name": "Ochotnica Dolna - last month",
       "urls": {
         "url1": "https://datahub.ki.agh.edu.pl/api/endpoints/71/data/",
-        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/70/data/"
+        "url2": "https://datahub.ki.agh.edu.pl/api/endpoints/72/data/",
+        "url3": "https://datahub.ki.agh.edu.pl/api/endpoints/75/data/"
       },
       "static_data": [
         {
@@ -214,66 +303,114 @@
           "unit": null
         },
         {
-          "name": "ID",
+          "name": "IP",
           "url": "url1",
-          "source": "id",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url2",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url2",
+          "source": "tun0IP",
+          "unit": null
+        },
+        {
+          "name": "Location",
+          "url": "url3",
+          "source": "location.locName",
+          "unit": null
+        },
+        {
+          "name": "IP",
+          "url": "url3",
+          "source": "tun0IP",
           "unit": null
         }
       ],
       "sensors_data": [
         {
-          "name": "devPoint",
-          "url": "url1",
-          "source": "envSensor.pressure",
-          "unit": "celsius"
-        },
-        {
-          "name": "Voltage",
-          "url": "url1",
-          "source": "supplyVoltage",
-          "unit": "V"
-        },
-        {
-          "name": "Temperature",
+          "name": "Urzad Gminy Temperature",
           "url": "url1",
           "source": "heater.tempSet",
           "unit": "celsius"
+        },
+        {
+          "name": "Mlynne Temperature",
+          "url": "url2",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Szkola M Konopnickiej Temperature",
+          "url": "url3",
+          "source": "heater.tempSet",
+          "unit": "celsius"
+        },
+        {
+          "name": "Urzad Gminy Humidity",
+          "url": "url1",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Mlynne Humidity",
+          "url": "url2",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
+        },
+        {
+          "name": "Szkola M Konopnickiej Humidity",
+          "url": "url3",
+          "source": "envSensor.relativeHumidity",
+          "unit": "%"
         }
       ],
 
-
       "plots": [
         {
-          "plot_name": "DevPoint and Voltage",
+          "plot_name": "Temperature",
           "plot_data": [
             {
-              "data_name": "devPoint",
+              "data_name": "Urzad Gminy Temperature",
               "plot_color": "red"
             },
             {
-              "data_name": "Voltage",
-              "plot_color": "black"
+              "data_name": "Mlynne Temperature",
+              "plot_color": "blue"
+            },
+            {
+              "data_name": "Szkola M Konopnickiej Temperature",
+              "plot_color": "green"
             }
           ]
         },
         {
-          "plot_name": "DevPoint and Temp",
+          "plot_name": "Humidity",
           "plot_data": [
             {
-              "data_name": "devPoint",
+              "data_name": "Urzad Gminy Humidity",
+              "plot_color": "red"
+            },
+            {
+              "data_name": "Mlynne Humidity",
               "plot_color": "blue"
             },
             {
-              "data_name": "Temperature",
+              "data_name": "Szkola M Konopnickiej Humidity",
               "plot_color": "green"
             }
           ]
         }
       ],
 
-
       "timestamp": {
-        "from": "day",
+        "from": "month",
         "to": "now"
       },
 
