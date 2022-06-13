@@ -141,7 +141,7 @@
 
       "updates": {
         "update": true,
-        "update_interval_sec": 25
+        "update_interval_sec": 600
       }
     },
     {
@@ -285,7 +285,7 @@
 
       "updates": {
         "update": true,
-        "update_interval_sec": 30
+        "update_interval_sec": 600
       }
     },
     {
@@ -429,7 +429,7 @@
 
       "updates": {
         "update": true,
-        "update_interval_sec": 20
+        "update_interval_sec": 600
       }
     }
   ]
